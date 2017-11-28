@@ -41,11 +41,25 @@ public class QQVoiceActivity extends AppCompatActivity {
 
     public void mFix(View view){
         String path = Environment.getExternalStorageDirectory() + File.separator + "test.wav";
-        if(new File(path).exists()){
-            EffectUtils.fix(path,EffectUtils.MODE_NORMAL);
-            Log.e("-------------->>>>>","播放音频文件");
-        }else {
-            Log.e("-------------->>>>>","音频文件不存在");
+        switch (view.getId()){
+            case R.id.btn_dashu:
+                EffectUtils.fix(path,EffectUtils.MODE_DASHU);
+                break ;
+            case R.id.btn_gaoguai:
+                EffectUtils.fix(path,EffectUtils.MODE_GAOGUAI);
+                break ;
+            case R.id.btn_jingsong:
+                EffectUtils.fix(path,EffectUtils.MODE_JINGSONG);
+                break ;
+            case R.id.btn_luoli:
+                EffectUtils.fix(path,EffectUtils.MODE_LUOLI);
+                break ;
+            case R.id.btn_kongling:
+                EffectUtils.fix(path,EffectUtils.MODE_KONGLING);
+                break ;
+            case R.id.btn_record:
+                EffectUtils.fix(path,EffectUtils.MODE_NORMAL);
+                break ;
         }
     }
 
