@@ -6,11 +6,14 @@ set(distribution_DIR ../../../../libs)
 
 # 添加自己的library
 add_library( # Sets the name of the library.
-             native-lib
+             # native-lib
+             voidEffect
              SHARED
-             src/main/cpp/common_platform.cpp
-             src/main/cpp/common.cpp
-             src/main/cpp/play_sound.cpp )
+             # src/main/cpp/common_platform.cpp
+             # src/main/cpp/common.cpp
+             # src/main/cpp/play_sound.cpp
+             src/main/cpp/effect_fix.cpp
+              )
 
 # 添加已有库library
 add_library( fmod-lib
@@ -37,6 +40,7 @@ set_target_properties( fmodL-lib
 
 # 链接所有库打包成一个库
 target_link_libraries( # Specifies the target library.
-                       native-lib
+                       # native-lib
+                       voidEffect
                        fmod-lib
                        fmodL-lib)
