@@ -6,9 +6,6 @@
 #include <unistd.h>
 #include "com_sinieco_changevoice_EffectUtils.h"
 #include "inc/fmod.hpp"
-#include <android/log.h>
-#define LOGI(FORMAT,...) __android_log_print(ANDROID_LOG_INFO,"jason",FORMAT,##__VA_ARGS__);
-#define LOGE(FORMAT,...) __android_log_print(ANDROID_LOG_ERROR,"jason",FORMAT,##__VA_ARGS__);
 using namespace FMOD ;
 
 JNIEXPORT void JNICALL Java_com_sinieco_changevoice_EffectUtils_fix
@@ -39,6 +36,10 @@ JNIEXPORT void JNICALL Java_com_sinieco_changevoice_EffectUtils_fix
             channel->setFrequency(frequency);
             break ;
         case com_sinieco_changevoice_EffectUtils_MODE_JINGSONG :
+            system->createDSPByType(FMOD_DSP_TYPE_TREMOLO,&dsp);
+            dsp->setParameterFloat(FMOD_DSP_TREMOLO_SKEW,0.5);
+            system->playSound(sound,0,false,&channel);
+            channel->addDSP(0,dsp);
             break ;
         case com_sinieco_changevoice_EffectUtils_MODE_KONGLING :
             system->createDSPByType(FMOD_DSP_TYPE_ECHO,&dsp);

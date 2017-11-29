@@ -7,6 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 import org.fmod.FMOD;
 
@@ -37,6 +40,8 @@ public class QQVoiceActivity extends AppCompatActivity {
 
             }
         });
+
+        Glide.with(this).load("url").into(new ImageView(this));
     }
 
     public void mFix(View view){
