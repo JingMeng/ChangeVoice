@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +54,7 @@ public class XPermissionUtils {
         }
 
     /**
-     * 获取请求权限中需要授权的权限
+     * 鑾峰彇璇锋眰鏉冮檺涓渶瑕佹巿鏉冪殑鏉冮檺
      */
     private static List<String> getDeniedPermissions(Context context, String... permissions) {
         List<String> deniedPermissions = new ArrayList<>();
@@ -67,8 +67,7 @@ public class XPermissionUtils {
     }
 
     /**
-     * 请求权限结果，对应Activity中onRequestPermissionsResult()方法。
-     */
+     * 璇锋眰鏉冮檺缁撴灉锛屽搴擜ctivity涓璷nRequestPermissionsResult()鏂规硶銆?     */
     public static void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (mRequestCode != -1 && requestCode == mRequestCode) {
             if (mOnPermissionListener != null) {
@@ -82,7 +81,7 @@ public class XPermissionUtils {
     }
 
     /**
-     * 验证所有权限是否都已经授权
+     * 楠岃瘉鎵€鏈夋潈闄愭槸鍚﹂兘宸茬粡鎺堟潈
      */
     private static boolean verifyPermissions(int[] grantResults) {
         for (int grantResult : grantResults) {
@@ -93,3 +92,4 @@ public class XPermissionUtils {
         return true;
     }
 }
+

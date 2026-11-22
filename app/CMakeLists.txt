@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.4.1)
 
 # 配置根目录
-set(distribution_DIR ../../../../libs)
+set(distribution_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs")
 
 
 # 添加自己的library
